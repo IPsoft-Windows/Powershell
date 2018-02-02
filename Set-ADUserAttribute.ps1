@@ -24,7 +24,6 @@ $hash = @{}
 $CCTable = Import-Csv .\CountryCodes.csv
 foreach ($r in $CCTable) { $hash[$r.c]=$r.co }
 
-# | Select-Object -First 10
 foreach ($user in $users) {
 
     if (!$user.c)
