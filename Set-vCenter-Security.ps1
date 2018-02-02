@@ -4,10 +4,10 @@
 Import-Module "VMware.VimAutomation.Core"
 
 $creds = Get-Credential
-Connect-VIServer "aarwinvc01.corp.duracell.com" -Credential $creds
+Connect-VIServer "server01.domain.com" -Credential $creds
 
 $directory = "c:\temp"
-$datacenter = "Aarschot DC"
+$datacenter = "Site DC"
 
 #Read in the folder structure from the Get script and create those VM Folders
 foreach ($thisFolder in (import-clixml $directory\folders.xml | where {!($_.name -eq "vm")})) {(get-datacenter $datacenter) | get-folder $thisFolder.Parent | new-folder $thisFolder.Name -confirm:$false}
