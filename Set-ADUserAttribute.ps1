@@ -1,4 +1,5 @@
-﻿#
+
+#
 # Match "co" attribute with "c" attribute for all active users created after a certain date
 #
 # -Rob Nadolski
@@ -13,6 +14,12 @@ $header = "Name,UPN,CreatedDate,c,co,enabled,corrected"
 $header |out-file .\users.csv -Append -NoClobber
 
 # Build hash table with Country Codes
+# Format:
+# c,co
+# AE,Utd.Arab Emir.
+# AT,Austria
+# AU,Australia
+# etc.
 $hash = @{}
 $CCTable = Import-Csv .\CountryCodes.csv
 foreach ($r in $CCTable) { $hash[$r.c]=$r.co }
