@@ -20,4 +20,4 @@ function Get-ADUserLastLogon([string]$userName)
   $dt = [DateTime]::FromFileTime($time)
   Write-Host $username "last logged on at:" $dt }
 
-Get-ADUserLastLogon -UserName ipwin_automation
+Get-ADUserLastLogon -UserName test
