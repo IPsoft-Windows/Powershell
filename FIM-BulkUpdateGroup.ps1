@@ -13,7 +13,7 @@ $ProgressPreference="SilentlyContinue"
 ### USAGE: .\FIM-BulkUpdateGroup.ps1 -GroupName <GroupName> -ImportCSV "<UsersImportFilePath>" [-Delimiter <Delimiter>] [-LogFilePath <LogFile>]
 ###
 ###
-### Note: Run on FIM Service Server (usalsdur003.corp.duracell.com)
+### Note: Run on FIM Service Server
 ###
 ###
 ### Parameters:     GroupName             Display Name or Account ame of group to update
@@ -52,7 +52,7 @@ Function GetSingleResource
     Param($Filter)
     End
     {
-        $exportResource = export-fimconfig -uri $FIMSvcURI –onlyBaseResources -customconfig ("$Filter") -ErrorVariable error -ErrorAction SilentlyContinue
+        $exportResource = export-fimconfig -uri $FIMSvcURI â€“onlyBaseResources -customconfig ("$Filter") -ErrorVariable error -ErrorAction SilentlyContinue
         If($error){Throw $error}
         If($exportResource -eq $null) {Throw "Resource not found: $Filter"}
         If(@($exportResource).Count -ne 1) {Throw "More than one resource found: $Filter"}
