@@ -19,4 +19,3 @@ foreach ($VC in $VCs) {
     Get-VM | Get-NetworkAdapter |select @{N="vCenter";E={$vc}},@{N="VM";E={$_.Parent.Name}},@{N="OS";E={$_.Parent.ExtensionData.Guest.GuestFullName}},Name,Type |Export-Csv C:\Users\nadolski.r\Desktop\netadapters.csv -Append
     Disconnect-VIServer * -Confirm:$false
 }
-
