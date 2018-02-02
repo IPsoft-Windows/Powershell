@@ -4,10 +4,10 @@
 Import-Module "VMware.VimAutomation.Core"
 
 $creds = Get-Credential
-Connect-VIServer "aarwinvc01.corp.duracell.com" -Credential $creds
+Connect-VIServer "server01.domain.com" -Credential $creds
 
 $directory = "c:\temp"
-$datacenter = "Aarschot DC"
+$datacenter = "Site DC"
 
 new-item $directory -type directory -erroraction silentlycontinue
 get-virole | where {$_.issystem -eq $false} | export-clixml $directory\roles.xml
